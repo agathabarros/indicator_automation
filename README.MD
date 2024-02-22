@@ -32,7 +32,7 @@ Ex: The email to be sent to the Manager of Store A should be as an example
 
 - Sales.xlsx file with sales from all stores. Note: Each manager should only receive OnePage and an attached Excel file with their store's sales. Information from another store should not be sent to a manager who is not from that store.
 
-- Lojas.csv file with the name of each store
+- store.csv file with the name of each store
 
 - At the end, your routine should also send an email to the board of directors (information is also in the Emails.xlsx file) with 2 store rankings attached, 1 daily ranking and another annual ranking. Furthermore, in the body of the email, you must highlight which was the best and worst store of the day and also the best and worst store of the year. A store's ranking is given by the store's revenue.
 
