@@ -2,7 +2,7 @@
 
 ### Objective: Train and create a Complete Project that involves automating a process carried out on the computer
 
-# Description:¶
+# Description:
 
 Imagine that you work in a large chain of clothing stores with 25 stores spread across Brazil.
 
@@ -13,7 +13,7 @@ A One Page is a very simple and straight-to-the-point summary, used by the store
 OnePage example:
 
 
-![alt text](image.png)
+![alt text](table.png)
 
 
 Your role, as a Data Analyst, is to be able to create a process in the most automatic way possible to calculate the OnePage of each store and send an email to the manager of each store with your OnePage in the body of the email and also the file complete with the details of your respective store attached.
@@ -22,7 +22,7 @@ Ex: The email to be sent to the Manager of Store A should be as an example
 
 
 
-![alt text](<Screenshot 2024-02-22 at 22.07.56.png>)
+![alt text](<email.png>)
 
 
 
