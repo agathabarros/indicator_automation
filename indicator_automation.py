@@ -3,9 +3,6 @@
 
 # ### Step 1 - Import Files and Libraries
 
-# In[44]:
-
-
 #import library
 import pandas as pd
 #libraries for email
@@ -17,9 +14,6 @@ from email.mime.text import MIMEText
 from email import encoders
 # library for file handling
 import pathlib
-
-
-# In[45]:
 
 
 #import and clean databases
@@ -34,17 +28,10 @@ display(sales)
 
 # ### Step 2 - Define Create a Table for each Store and Define the Indicator day
 
-# In[46]:
-
-
 #include store name in sales
 
 sales = sales.merge(stores, on='ID Store')
 display(sales)
-
-
-# In[47]:
-
 
 #create dictionary for store the stores
 # loc to filter what I want
@@ -54,9 +41,6 @@ for store in stores['Store']:
 display(dictionary_store['Norte Shopping'])
 
 
-# In[48]:
-
-
 #difine the indicator day
 indicator_day = sales['Date'].max()
 print(indicator_day)
@@ -64,9 +48,6 @@ print('{}/{}'.format(indicator_day.day, indicator_day.month))
 
 
 # ### Step 3 - Save the spreadsheet in the backup folder
-
-# In[49]:
-
 
 #identify if the folder already exists
 backup_path = pathlib.Path(r'backup_stores')
@@ -94,11 +75,7 @@ for store in dictionary_store:
 
 # ### Step 4 - Calculate the indicator for 1 store and send by email to manager
 
-# In[50]:
-
-
 #define goals
-
 goal_inv_day = 1000
 goal_inv_year = 1650000
 goal_div_prod_day = 4
@@ -107,11 +84,7 @@ goal_averg_ticket_day = 500
 goal_averg_ticket_year = 500
 
 
-# In[51]:
-
-
 #goals setting
-
 for store in  dictionary_store:
     
     store_sales = dictionary_store[store]
@@ -272,8 +245,6 @@ for store in  dictionary_store:
     send_email()
 
 
-# In[52]:
-
 
 #ranking of stores year and day
 invoicing_stores = sales.groupby('Store')[['Store', 'Final Value']].sum('Final Value')
@@ -287,10 +258,7 @@ invoincing_stores_day = invoincing_stores_day.sort_values(by='Final Value', asce
 display(invoincing_stores_day)
 
 
-# ### Step 7 - Create ranking for board
-
-# In[53]:
-
+# ### Step 5 - Create ranking for board
 
 #ranking of stores year and day
 invoicing_stores = sales.groupby('Store')[['Store', 'Final Value']].sum('Final Value')
@@ -311,10 +279,7 @@ file_name = '{}_{}_ranking_day.xlsx'.format(indicator_day.month, indicator_day.d
 invoicing_stores_year.to_excel(r'backup_stores/{}'.format(file_name))
 
 
-# ### Step 8 - Send email to management
-
-# In[54]:
-
+# ### Step 6 - Send email to management
 
 def send_email_board():  
 
@@ -324,8 +289,6 @@ def send_email_board():
         msg['To'] = emails.loc[emails['Store']== 'Board','E-mail'].values[0]
         password = 'sgyc osyt ajnw uywp' 
 
-
-       
 
         #mail body HTML
         mail_body = f''' 
@@ -379,12 +342,6 @@ def send_email_board():
         print('E-mail Board sent.')
 
 send_email_board()
-
-
-# 
-
-# In[ ]:
-
 
 
 
